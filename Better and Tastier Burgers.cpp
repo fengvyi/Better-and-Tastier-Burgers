@@ -4,7 +4,6 @@ using namespace std;
 #define M 10
 
 int partition(double A[M][3], int p, int r) {
-
 	double x = A[r][0];    //pivot
 	int i = p - 1;
 	for (int j = p; j <= r - 1; j++) {
@@ -12,22 +11,17 @@ int partition(double A[M][3], int p, int r) {
 			i++;
 			swap(A[i], A[j]);
 		}
-
 	}
 	swap(A[i + 1], A[r]);
 	return i + 1;
 }
 
-
 void quicksort(double A[M][3], int p, int r) {
-
 	if (p < r) {
 		int q = partition(A, p, r);
 		quicksort(A, p, q - 1);
 		quicksort(A, q + 1, r);
-
 	}
-
 }
 
 void print(int* A, double B[M][3], int i) {
@@ -36,7 +30,7 @@ void print(int* A, double B[M][3], int i) {
 		return;
 	}
 	cout << "taste value:[" << B[i][0] << "]   health value:[" << B[i][1] << "]    index:[" << B[i][2] << "]" << endl;
-    print(A, B, A[i]);
+        print(A, B, A[i]);
 }
 
 int Longest_Increasing_Sequence(double A[M][3]) {
@@ -55,7 +49,6 @@ int Longest_Increasing_Sequence(double A[M][3]) {
 					S[i] = j;
 				}
 			}
-
 		}
 		if (q == 1) {
 			X[i] = 1;
@@ -65,7 +58,7 @@ int Longest_Increasing_Sequence(double A[M][3]) {
 
 	cout << "X[i]" << endl;
 	for (int i = 0; i < M; i++) cout << X[i] << ",";
-    cout << endl;
+ 	cout << endl;
 
 	int max = 0;
 	int max_i;
@@ -78,7 +71,7 @@ int Longest_Increasing_Sequence(double A[M][3]) {
 
 	cout << "print:" << endl;
 	print(S, A, max_i);
-    cout << endl;
+	cout << endl;
 
 	return X[max_i];
 }
